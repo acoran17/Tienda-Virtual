@@ -1,4 +1,4 @@
 <?php
-class Event {
+class Event extends Service{
   
 }

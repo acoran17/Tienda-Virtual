@@ -1,4 +1,4 @@
 <?php
-class Mix {
+class Mix extends Service{
   
 }

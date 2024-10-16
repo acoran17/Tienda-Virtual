@@ -1,4 +1,4 @@
 <?php
-class Sesion {
+class Sesion extends Service{
   
 }
