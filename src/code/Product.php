@@ -1,10 +1,20 @@
 <?php
-class Products {
+class Product {
   private $name;
   private $basePrice;
   private $manufacturer;
   private $weight;
   private $volume;
+  private $tax;
+
+  public function __construct($name, $basePrice, $manufacturer, $weight, $volume, $tax = 0.07) {
+    $this->name = $name;
+    $this->basePrice = $basePrice;
+    $this->manufacturer = $manufacturer;
+    $this->weight = $weight;
+    $this->volume = $volume;
+    $this->tax = $tax;
+  }
 
   function getName() {
     return $this->name;
@@ -42,7 +52,7 @@ class Products {
     return $this->volume;
   }
 
-  function setVolume() {
+  function setVolume($volume) {
     $this->volume = $volume;
   }
 
