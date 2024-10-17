@@ -12,9 +12,10 @@ include "../code/Perishables.php"
 <body>
   <?php
   $obj = new Perishables("Nombre", 10.5, "proveedor", 200, 1000); 
-  $obj->setCadDate(10,10,2024);
-  print_r($obj->getCadDate());
-  var_dump($obj->getCadDate());
+  $obj->setExpDate(28,11,2024);
+  print_r($obj->daysToExpire());
+  //print_r($obj->getExpDate());
+  //print_r($obj->daysToExpire());
   ?>
   
 </body>
