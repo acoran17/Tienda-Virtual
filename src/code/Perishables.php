@@ -4,7 +4,18 @@ include "Product.php";
 class Perishables extends Product
 {
   private $expirationDate = null;
-  public function __construct($name, $basePrice, $manufacturer, $weight, $volume)
+  
+  /**
+   * __construct
+   *
+   * @param  string $name
+   * @param  float $basePrice
+   * @param  string $manufacturer
+   * @param  float $weight
+   * @param  float $volume
+   * @return void
+   */
+  public function __construct(string $name, float $basePrice, string $manufacturer, float $weight, float $volume)
   {
     parent::__construct($name, $basePrice, $manufacturer, $weight, $volume);
     $this->expirationDate = DateTime::createFromFormat('Y-m-d', '0-0-0');
@@ -13,9 +24,9 @@ class Perishables extends Product
   /**
    * Set the expiration Date.
    *
-   * @param  mixed $day   
-   * @param  mixed $month 
-   * @param  mixed $year  
+   * @param  int $day   
+   * @param  int $month 
+   * @param  int $year  
    */
   public function setExpDate(int $day, int $month, int $year)
   {

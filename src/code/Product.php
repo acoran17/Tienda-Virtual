@@ -1,13 +1,25 @@
 <?php
-class Product {
-  private $name;
-  private $basePrice;
-  private $manufacturer;
-  private $weight;
-  private $volume;
-  private $tax;
-
-  public function __construct($name, $basePrice, $manufacturer, $weight, $volume, $tax = 0.07) {
+class Product
+{
+  private string $name;
+  private float $basePrice;
+  private string $manufacturer;
+  private float $weight;
+  private float $volume;
+  private float $tax;
+  
+  /**
+   * Product constructor.
+   *
+   * @param  string $name
+   * @param  float $basePrice
+   * @param  string $manufacturer
+   * @param  float $weight
+   * @param  float $volume
+   * @param  float $tax
+   */
+  public function __construct(string $name, float $basePrice, string $manufacturer, float $weight, float $volume, $tax = 0.07)
+  {
     $this->name = $name;
     $this->basePrice = $basePrice;
     $this->manufacturer = $manufacturer;
@@ -16,51 +28,134 @@ class Product {
     $this->tax = $tax;
   }
 
-  function getName() {
+
+  function salePrice() {}
+
+  function shippingCost() {}
+
+  
+  /**
+   * Get product name.
+   *
+   * @return void
+   */
+  public function getName()
+  {
     return $this->name;
   }
 
-  function setName($name) {
+
+  /**
+   * Set product name.
+   *
+   * @param  string $name
+   */
+  public function setName(string $name)
+  {
     $this->name = $name;
   }
 
-  function getbasePrice() {
+
+  /**
+   * Return product base price.
+   *
+   * @return float
+   */
+  public function getBasePrice(): float
+  {
     return $this->basePrice;
   }
 
-  function setbasePrice($basePrice) {
+  
+  /**
+   * Set product base price.
+   *
+   * @param  float $basePrice
+   */
+  public function setBasePrice(float $basePrice)
+  {
     $this->basePrice = $basePrice;
   }
 
-  function getManufacturer() {
+
+  /**
+   * Return the manufacturer.
+   *
+   * @return string
+   */
+  public function getManufacturer(): string
+  {
     return $this->manufacturer;
   }
 
-  function setManufacturer($manufacturer) {
+  /**
+   * Set product manufacturer.
+   *
+   * @param  string $manufacturer
+   */
+  public function setManufacturer(string $manufacturer)
+  {
     $this->manufacturer = $manufacturer;
   }
 
-  function getWeight() {
+  /**
+   * Return product weight.
+   *
+   * @return float
+   */
+  public function getWeight(): float
+  {
     return $this->weight;
   }
-
-  function setWeight($weight) {
+ 
+  /**
+   * Set weight.
+   *
+   * @param  float $weight
+   */
+  public function setWeight(float $weight)
+  {
     $this->weight = $weight;
   }
 
-  function getVolume() {
+  /**
+   * Return the volume.
+   *
+   * @return float
+   */
+  public function getVolume(): float
+  {
     return $this->volume;
   }
 
-  function setVolume($volume) {
+  
+  /**
+   * Set product volume.
+   *
+   * @param  float $volume
+   */
+  public function setVolume(float $volume)
+  {
     $this->volume = $volume;
   }
 
-  function salePrice() {
-
+  /**
+   * Get the product tax.
+   *
+   * @return float
+   */
+  public function getTax(): float
+  {
+    return $this->tax;
   }
 
-  function shippingCost() {
-    
+  /**
+   * Set product tax.
+   *
+   * @param  float $tax
+   */
+  public function setTax(float $tax)
+  {
+    $this->tax = $tax;
   }
 }

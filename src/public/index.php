@@ -14,6 +14,9 @@ include "../code/Perishables.php"
   $obj = new Perishables("Nombre", 10.5, "proveedor", 200, 1000); 
   $obj->setExpDate(28,11,2024);
   print_r($obj->daysToExpire());
+
+
+  
   //print_r($obj->getExpDate());
   //print_r($obj->daysToExpire());
   ?>
