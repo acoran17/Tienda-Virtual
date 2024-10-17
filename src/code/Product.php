@@ -28,10 +28,31 @@ class Product
     $this->tax = $tax;
   }
 
-
-  function salePrice() {}
-
-  function shippingCost() {}
+  
+  /**
+   * Return the sale price
+   *
+   * @return float
+   */
+  function salePrice() {
+    return $this->basePrice + ($this->basePrice * $this->tax);
+  }
+  
+  /**
+   * Return the shipping cost
+   *
+   * @return float
+   */
+  function shippingCost() {
+    return 2 + ($this->weight + 0.0002) + ($this->volume / 1000);
+  }
+  
+  /**
+   * Return if the product is expirate
+   *
+   * @return boolean
+   */
+  function expirationDate() {}
 
   
   /**
