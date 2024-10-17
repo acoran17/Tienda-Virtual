@@ -30,7 +30,7 @@ class Product
 
   
   /**
-   * Return the sale price
+   * Return the sale price.
    *
    * @return float
    */
@@ -39,21 +39,13 @@ class Product
   }
   
   /**
-   * Return the shipping cost
+   * Return the shipping cost.
    *
    * @return float
    */
   function shippingCost() {
-    return 2 + ($this->weight + 0.0002) + ($this->volume / 1000);
+    return round(2 + ($this->weight * 0.0002) + ($this->volume / 1000));
   }
-  
-  /**
-   * Return if the product is expirate
-   *
-   * @return boolean
-   */
-  function expirationDate() {}
-
   
   /**
    * Get product name.

@@ -1,19 +1,18 @@
 <?php
 include "Product.php";
 
-class Perishables extends Product
+class Perishable extends Product
 {
   private $expirationDate = null;
-  
+
   /**
-   * __construct
+   *  Perishable constructor.
    *
    * @param  string $name
    * @param  float $basePrice
    * @param  string $manufacturer
    * @param  float $weight
    * @param  float $volume
-   * @return void
    */
   public function __construct(string $name, float $basePrice, string $manufacturer, float $weight, float $volume)
   {
@@ -71,7 +70,7 @@ class Perishables extends Product
     $interval = $this->getCurrDate()->diff($this->getExpDate());
     return $interval;
   }
-    
+
   /**
    * Return the current date.
    *
@@ -81,7 +80,7 @@ class Perishables extends Product
   {
     $aux = new DateTime();
     return $aux;
-  }  
+  }
   /**
    * Return expiration date.
    *
