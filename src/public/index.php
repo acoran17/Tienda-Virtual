@@ -1,6 +1,6 @@
 <?php
 include "../code/Perishable.php";
-$showResults = 'per';
+$showResults = 'prod';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,8 @@ $showResults = 'per';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="./style/perishableCard.css">
+  <link rel="stylesheet" type="text/css" href="./style/card.css">
+  <link rel="stylesheet" type="text/css" href="./style/base.css">
 </head>
 
 <body>
@@ -18,8 +19,9 @@ $showResults = 'per';
     case 'all':
 
       break;
-    case 'per':
-      require_once "./partials/showPerishables.php";
+    case 'prod':
+      require_once "./partials/showAllProducts.php";
+
     default:
       break;
   }

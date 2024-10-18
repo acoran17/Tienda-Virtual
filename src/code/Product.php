@@ -34,9 +34,9 @@ class Product
    *
    * @return float
    */
-  function salePrice(): float
+  function getSalePrice(): float
   {
-    return $this->basePrice + ($this->basePrice * $this->tax);
+    return round($this->basePrice + ($this->basePrice * $this->tax), 2);
   }
 
   /**
@@ -44,9 +44,9 @@ class Product
    *
    * @return float
    */
-  function shippingCost(): float
+  function getShippingCost(): float
   {
-    return round(2 + ($this->weight * 0.0002) + ($this->volume / 1000));
+    return round(2 + ($this->weight * 0.0002) + ($this->volume / 1000), 2);
   }
 
   /**
