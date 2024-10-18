@@ -13,9 +13,12 @@ $prodPerishable3->setExpirationDate(15, 11, 2024);
 
 
 
-$allProducts[] = [
+$storeProducts[] = [
   $prod1 = new Product("Móvil", 999.99, "Apple", 0.5, 2000),
   $prod2 = new Product("Pórtatil", 999.99, "Hp", 5, 10000),
+];
+
+$storePerishableProducts = [
   $prodPerishable1,
   $prodPerishable2,
   $prodPerishable3,

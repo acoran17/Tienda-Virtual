@@ -25,16 +25,13 @@ class Perishable extends Product
   {
     $basePrice = parent::getBasePrice();
     $days = $this->getdaysToExpire();
-    if ($days != -1) {
-      if ($days <= 30) {
-        if ($days <= 10) {
-          return $basePrice - ($basePrice * $this->secondDiscount);
-        }
-        return $basePrice - ($basePrice * $this->firstDiscount);
+    if ($days <= 30) {
+      if ($days <= 10) {
+        return $basePrice - ($basePrice * $this->secondDiscount);
       }
-    } else {
-      return -1;
+      return $basePrice - ($basePrice * $this->firstDiscount);
     }
+
     return $basePrice;
   }
   /**
