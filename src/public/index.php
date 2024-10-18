@@ -1,6 +1,6 @@
 <?php
-include "../code/Perishable.php"
-
+include "../code/Perishable.php";
+require_once "./storeItems.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +13,21 @@ include "../code/Perishable.php"
 
 <body>
   <?php
-  $obj = new Perishable("Nombre", 10.5, "proveedor", 200, 1000);
-  $obj->setExpDate(28, 11, 2024);
-  print_r($obj->daysToExpire());
+
+
+  foreach ($allProducts[0] as $key => $value) {
+    echo "<p>";
+
+    if ($value instanceof Perishable) {
+      printf("<strong>Nombre:</strong> %s", $value->getName());
+      echo "<ul>";
+      printf("<li><strong>Precio sin tax:</strong> %s</li>", $value->getBasePrice());
+      printf("<li><strong>Fecha:</strong> %s</li>", $value->getExpirationDate()->format('d/m/Y'));
+      echo "</ul>";
+    }
+
+    echo "</p>";
+  }
 
 
 

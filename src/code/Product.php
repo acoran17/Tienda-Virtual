@@ -7,7 +7,7 @@ class Product
   private float $weight;
   private float $volume;
   private float $tax;
-  
+
   /**
    * Product constructor.
    *
@@ -28,31 +28,33 @@ class Product
     $this->tax = $tax;
   }
 
-  
+
   /**
    * Return the sale price.
    *
    * @return float
    */
-  function salePrice() {
+  function salePrice(): float
+  {
     return $this->basePrice + ($this->basePrice * $this->tax);
   }
-  
+
   /**
    * Return the shipping cost.
    *
    * @return float
    */
-  function shippingCost() {
+  function shippingCost(): float
+  {
     return round(2 + ($this->weight * 0.0002) + ($this->volume / 1000));
   }
-  
+
   /**
    * Get product name.
    *
-   * @return void
+   * @return string
    */
-  public function getName()
+  public function getName(): string
   {
     return $this->name;
   }
@@ -79,7 +81,7 @@ class Product
     return $this->basePrice;
   }
 
-  
+
   /**
    * Set product base price.
    *
@@ -120,7 +122,7 @@ class Product
   {
     return $this->weight;
   }
- 
+
   /**
    * Set weight.
    *
@@ -141,7 +143,7 @@ class Product
     return $this->volume;
   }
 
-  
+
   /**
    * Set product volume.
    *

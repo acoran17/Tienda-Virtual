@@ -4,7 +4,8 @@ include "Product.php";
 class Perishable extends Product
 {
   private $expirationDate = null;
-
+  private float $firstDiscount = 0.10;
+  private float $secondDiscount = 0.25;
   /**
    *  Perishable constructor.
    *
@@ -20,6 +21,22 @@ class Perishable extends Product
     $this->expirationDate = DateTime::createFromFormat('Y-m-d', '0-0-0');
   }
 
+  public function getBasePrice(): float
+  {
+    $basePrice = parent::getBasePrice();
+    $days = $this->getdaysToExpire();
+    if ($days != -1) {
+      if ($days <= 30) {
+        if ($days <= 10) {
+          return $basePrice - ($basePrice * $this->secondDiscount);
+        }
+        return $basePrice - ($basePrice * $this->firstDiscount);
+      }
+    } else {
+      return -1;
+    }
+    return $basePrice;
+  }
   /**
    * Set the expiration Date.
    *
@@ -27,7 +44,7 @@ class Perishable extends Product
    * @param  int $month 
    * @param  int $year  
    */
-  public function setExpDate(int $day, int $month, int $year)
+  public function setExpirationDate(int $day, int $month, int $year)
   {
     $this->expirationDate->setTime(0, 0, 0);
     $this->expirationDate->setDate($year, $month, $day);
@@ -37,7 +54,7 @@ class Perishable extends Product
    *
    * @return int 
    */
-  public function daysToExpire(): int
+  public function getdaysToExpire(): int
   {
     if (!$this->isExpired()) {
       $interval = $this->dateDiff();
@@ -67,7 +84,7 @@ class Perishable extends Product
    */
   public function dateDiff(): DateInterval
   {
-    $interval = $this->getCurrDate()->diff($this->getExpDate());
+    $interval = $this->getCurrDate()->diff($this->getExpirationDate());
     return $interval;
   }
 
@@ -86,7 +103,7 @@ class Perishable extends Product
    *
    * @return DateTime
    */
-  public function getExpDate(): DateTime
+  public function getExpirationDate(): DateTime
   {
     return $this->expirationDate;
   }
