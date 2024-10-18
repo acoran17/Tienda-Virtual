@@ -21,6 +21,11 @@ class Perishable extends Product
     $this->expirationDate = DateTime::createFromFormat('Y-m-d', '0-0-0');
   }
 
+  function salePrice(): float
+  {
+    return $this->getBasePrice() + ($this->getBasePrice() * parent::getTax());
+  }
+
   public function getBasePrice(): float
   {
     $basePrice = parent::getBasePrice();
