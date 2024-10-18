@@ -6,6 +6,14 @@ class Normal extends Service
   private string $manufacturer;
   private float $tax;
 
+  public function __construct(string $name, float $basePrice, string $manufacturer, $tax = 0.07)
+  {
+    parent::__construct();
+    $this->name = $name;
+    $this->basePrice = $basePrice;
+    $this->manufacturer = $manufacturer;
+    $this->tax = $tax;
+  }
   /**
    * Return the sale price.
    *

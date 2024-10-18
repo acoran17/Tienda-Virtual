@@ -26,19 +26,22 @@ class Perishable extends Product
   {
     return round($this->getBasePrice() + ($this->getBasePrice() * parent::getTax()), 2);
   }
-
-  public function getBasePrice(): float
+  public function getDiscount(): float
   {
-    $basePrice = parent::getBasePrice();
     $days = $this->getdaysToExpire();
     if ($days <= 30) {
       if ($days <= 10) {
-        return $basePrice - ($basePrice * $this->secondDiscount);
+        return $this->secondDiscount;
       }
-      return $basePrice - ($basePrice * $this->firstDiscount);
+      return $this->firstDiscount;
     }
+    return 0;
+  }
+  public function getBasePrice(): float
+  {
+    $basePrice = parent::getBasePrice();
 
-    return $basePrice;
+    return $basePrice - ($basePrice * $this->firstDiscount);
   }
   /**
    * Set the expiration Date.

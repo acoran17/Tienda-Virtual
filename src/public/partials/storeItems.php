@@ -1,14 +1,13 @@
 <?php
 
 
-
 $prodPerishable1 = new Perishable("1KG de carne", 5, "Matadero Juan", 1, 3000);
 $prodPerishable1->setExpirationDate(4, 9, 2024);
 
-$prodPerishable2 = new Perishable("2KG de carne", 2, "Matadero Juan", 2, 6000);
+$prodPerishable2 = new Perishable("2KG de carne", 10, "Matadero Juan", 2, 6000);
 $prodPerishable2->setExpirationDate(21, 10, 2024);
 
-$prodPerishable3 = new Perishable("3KG de carne", 3, "Matadero Juan", 3, 9000);
+$prodPerishable3 = new Perishable("3KG de carne", 15, "Matadero Juan", 3, 9000);
 $prodPerishable3->setExpirationDate(15, 11, 2024);
 
 
@@ -22,4 +21,11 @@ $storePerishableProducts = [
   $prodPerishable1,
   $prodPerishable2,
   $prodPerishable3,
+];
+
+$serviceNormal = new Normal("El quijote Epub", 15.99, "Santillana");
+$serviceNormal = new Normal("Albúm Digital", 9.99, "Sony Music");
+$storeServices = [
+  $serviceNormal,
+  $serviceNormal2,
 ];
